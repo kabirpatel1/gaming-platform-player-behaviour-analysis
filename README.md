@@ -67,7 +67,7 @@ This project analysed four datasets covering player inter-arrival times, multipl
 
 The analysis confirmed that bots have a strong negative effect on revenue. Players in games with no bots spent an average of **$4.62 (95% CI: $4.33–$4.90)**, while players in games with 9 bots spent an average of just **$0.49 (95% CI: $0.30–$0.69)**. Crucially, the confidence intervals across bot groups do not overlap, making this finding statistically significant.
 
-![Spending CI Table](images/Screenshot_2026-08-04_at_5_24_39_PM.png)
+![Spending CI Table](images/Spending_CI_Table.png)
 *95% confidence intervals for average player spending by number of bots. The clear downward trend confirms that more bots means significantly less revenue per player.*
 
 **Recommendation:** Reducing average bot count per game should be treated as a revenue priority. Even reducing average bots from 5 to 2 is associated with roughly doubling average spend per player. Faster matchmaking that fills rooms with real players is the most direct lever the product team has.
