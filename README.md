@@ -7,7 +7,7 @@
 
 A hypothetical online multiplayer gaming platform was experiencing lower than expected in-game revenue and needed to understand what was driving player spending behaviour. This analysis examined four key areas: the impact of bots on player spending, player arrival patterns, in-game spending and enjoyment distributions, and the effect of queue abandonment on platform data.
 
-Key finding: **Players in fully human games (0 bots) spent on average $4.62, nearly 10x more than players in games with 9 bots ($0.49)**. The confidence intervals do not overlap, confirming this is a statistically meaningful difference, not random noise.
+Key finding: Players in fully human games (0 bots) spent on average **$4.62**, nearly **10x** more than players in games with 9 bots **($0.49)**. The confidence intervals do not overlap, confirming this is a statistically meaningful difference, not random noise.
 
 **Recommended next steps for the platform product team:**
 - Prioritise matchmaking speed to reduce bot frequency, the revenue impact is significant and quantifiable
