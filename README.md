@@ -20,7 +20,7 @@ Key finding: **Players in fully human games (0 bots) spent on average $4.62, nea
 
 Online gaming platforms generate revenue through in-game purchases. This platform noticed lower conversion rates than expected and needed a data-driven understanding of what affects how much players spend.
 
-***Does the number of bots in a game room affect how much money players spend? And how should the platform model player arrivals, spending, and enjoyment for future simulation and planning?***
+***Does the number of bots in a game room affect how much money players spend? How should the platform model player arrivals, spending, and enjoyment for future simulation and planning?***
 
 Answering these questions gives the product and revenue teams a statistical foundation for matchmaking decisions, queue design, and simulation input modelling, moving beyond gut instinct to evidence-based product strategy.
 
