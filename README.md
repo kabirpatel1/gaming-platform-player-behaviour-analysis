@@ -7,7 +7,7 @@
 
 A hypothetical online multiplayer gaming platform was experiencing lower than expected in-game revenue and needed to understand what was driving player spending behaviour. This analysis examined four key areas: the impact of bots on player spending, player arrival patterns, in-game spending and enjoyment distributions, and the effect of queue abandonment on platform data.
 
-Key finding: **players in fully human games (0 bots) spent on average $4.62, nearly 10x more than players in games with 9 bots ($0.49)**. The confidence intervals do not overlap, confirming this is a statistically meaningful difference, not random noise.
+Key finding: **Players in fully human games (0 bots) spent on average $4.62, nearly 10x more than players in games with 9 bots ($0.49)**. The confidence intervals do not overlap, confirming this is a statistically meaningful difference, not random noise.
 
 **Recommended next steps for the platform product team:**
 - Prioritise matchmaking speed to reduce bot frequency, the revenue impact is significant and quantifiable
@@ -20,7 +20,6 @@ Key finding: **players in fully human games (0 bots) spent on average $4.62, nea
 
 Online gaming platforms generate revenue through in-game purchases. This platform noticed lower conversion rates than expected and needed a data-driven understanding of what affects how much players spend.
 
-Specifically:
 ***Does the number of bots in a game room affect how much money players spend? And how should the platform model player arrivals, spending, and enjoyment for future simulation and planning?***
 
 Answering these questions gives the product and revenue teams a statistical foundation for matchmaking decisions, queue design, and simulation input modelling, moving beyond gut instinct to evidence-based product strategy.
@@ -34,10 +33,10 @@ Answering these questions gives the product and revenue teams a statistical foun
 This project analysed four datasets covering player inter-arrival times, multiplayer game data (spending, enjoyment, bots), and single-player queue abandonment data.
 
 **Approach:**
-1. **Bot impact on spending** — Constructed 95% confidence intervals for average player spending across all bot counts (0–9) using only non-impatient players, and assessed whether differences were statistically meaningful
-2. **Inter-arrival time distribution fitting** — Built a histogram of player inter-arrival times, identified the exponential distribution as the best candidate, estimated the rate parameter using MLE, and validated the fit using a Chi-squared goodness of fit test (10 equal probability bins, α = 0.05)
-3. **Spending & enjoyment distribution selection** — Analysed histograms of both variables and recommended the most appropriate simulation input method (direct sampling, empirical, or theoretical distribution) for each
-4. **Impatience data bias analysis** — Examined the truncated nature of queue abandonment data and assessed the implications for simulation accuracy
+1. **Bot impact on spending**: Constructed 95% confidence intervals for average player spending across all bot counts (0–9) using only non-impatient players, and assessed whether differences were statistically meaningful
+2. **Inter-arrival time distribution fitting**: Built a histogram of player inter-arrival times, identified the exponential distribution as the best candidate, estimated the rate parameter using MLE, and validated the fit using a Chi-squared goodness of fit test (10 equal probability bins, α = 0.05)
+3. **Spending & enjoyment distribution selection**: Analysed histograms of both variables and recommended the most appropriate simulation input method (direct sampling, empirical, or theoretical distribution) for each
+4. **Impatience data bias analysis**: Examined the truncated nature of queue abandonment data and assessed the implications for simulation accuracy
 
 ---
 
