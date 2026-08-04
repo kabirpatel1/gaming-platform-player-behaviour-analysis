@@ -21,9 +21,9 @@ Key finding: **players in fully human games (0 bots) spent on average $4.62 — 
 Online gaming platforms generate revenue through in-game purchases. This platform noticed lower conversion rates than expected and needed a data-driven understanding of what affects how much players spend.
 
 Specifically:
-> *Does the number of bots in a game room affect how much money players spend? And how should the platform model player arrivals, spending, and enjoyment for future simulation and planning?*
+***Does the number of bots in a game room affect how much money players spend? And how should the platform model player arrivals, spending, and enjoyment for future simulation and planning?***
 
-Answering these questions gives the product and revenue teams a statistical foundation for matchmaking decisions, queue design, and simulation input modelling — moving beyond gut instinct to evidence-based product strategy.
+Answering these questions gives the product and revenue teams a statistical foundation for matchmaking decisions, queue design, and simulation input modelling, moving beyond gut instinct to evidence-based product strategy.
 
 **Primary stakeholder:** Product managers and revenue analysts at the gaming platform who need to understand the drivers of in-game spending and how to improve conversion.
 
@@ -124,19 +124,7 @@ The impatience dataset is a **truncated sample** — it only includes players wh
 - Conduct formal goodness-of-fit testing for the spending and enjoyment distributions to validate the recommended simulation inputs
 - Combine the multiplayer and single-player datasets to model the full player journey from arrival to spending outcome
 - Build an interactive Shiny dashboard to allow the product team to explore spending by bot count and simulate revenue under different matchmaking scenarios
-
----
-
-## Files
-
-| File | Description |
-|------|-------------|
-| `Busan_assign_2_R_code.docx` | Full R code for all analyses |
-| `Multiplayer_Data.csv` | Player spending, enjoyment, and bot count data |
-| `SinglePlayer_Data.csv` | Data for players who abandoned the multiplayer queue |
-| `InterarrivalTimes.csv` | Player inter-arrival time data |
-| `MultiplayerGameTimes.csv` | Game duration data |
-
+  
 ---
 
 *Analysis completed as part of BUSAN 305: Simulation Modelling, University of Auckland, Semester 2 2025.*
