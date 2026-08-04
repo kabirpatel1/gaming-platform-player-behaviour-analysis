@@ -5,12 +5,12 @@
 
 ## Executive Summary
 
-A hypothetical online multiplayer gaming platform was experiencing lower-than-expected in-game revenue and needed to understand what was driving player spending behaviour. This analysis examined four key areas: the impact of bots on player spending, player arrival patterns, in-game spending and enjoyment distributions, and the effect of queue abandonment on platform data.
+A hypothetical online multiplayer gaming platform was experiencing lower than expected in-game revenue and needed to understand what was driving player spending behaviour. This analysis examined four key areas: the impact of bots on player spending, player arrival patterns, in-game spending and enjoyment distributions, and the effect of queue abandonment on platform data.
 
-Key finding: **players in fully human games (0 bots) spent on average $4.62 — nearly 10x more than players in games with 9 bots ($0.49)**. The confidence intervals do not overlap, confirming this is a statistically meaningful difference, not random noise.
+Key finding: **players in fully human games (0 bots) spent on average $4.62, nearly 10x more than players in games with 9 bots ($0.49)**. The confidence intervals do not overlap, confirming this is a statistically meaningful difference, not random noise.
 
 **Recommended next steps for the platform product team:**
-- Prioritise matchmaking speed to reduce bot frequency — the revenue impact is significant and quantifiable
+- Prioritise matchmaking speed to reduce bot frequency, the revenue impact is significant and quantifiable
 - Use the exponential inter-arrival model (λ = 0.9915) to build more accurate queue simulations
 - Address the truncated impatience data problem before building any player retention models
 
@@ -35,7 +35,7 @@ This project analysed four datasets covering player inter-arrival times, multipl
 
 **Approach:**
 1. **Bot impact on spending** — Constructed 95% confidence intervals for average player spending across all bot counts (0–9) using only non-impatient players, and assessed whether differences were statistically meaningful
-2. **Inter-arrival time distribution fitting** — Built a histogram of player inter-arrival times, identified the exponential distribution as the best candidate, estimated the rate parameter using MLE, and validated the fit using a Chi-squared goodness-of-fit test (10 equal-probability bins, α = 0.05)
+2. **Inter-arrival time distribution fitting** — Built a histogram of player inter-arrival times, identified the exponential distribution as the best candidate, estimated the rate parameter using MLE, and validated the fit using a Chi-squared goodness of fit test (10 equal probability bins, α = 0.05)
 3. **Spending & enjoyment distribution selection** — Analysed histograms of both variables and recommended the most appropriate simulation input method (direct sampling, empirical, or theoretical distribution) for each
 4. **Impatience data bias analysis** — Examined the truncated nature of queue abandonment data and assessed the implications for simulation accuracy
 
@@ -79,9 +79,9 @@ The analysis confirmed that bots have a strong negative effect on revenue. Playe
 The inter-arrival time histogram showed a right-skewed, memoryless distribution consistent with a Poisson arrival process.
 
 ![Inter-arrival Time Histogram](images/interarrival_histogram.png)
-*Strongly right-skewed distribution consistent with an exponential model — players arrive independently and randomly.*
+*Strongly right-skewed distribution consistent with an exponential model. Players arrive independently and randomly.*
 
-An exponential distribution with **λ = 0.9915** (mean inter-arrival time ≈ 1 minute) was fitted using MLE. A Chi-squared goodness-of-fit test returned a test statistic of **3.39**, well below the critical value of **15.51** (df = 8, α = 0.05), with a p-value of 0.9076. The exponential distribution is a good fit and should be used as the arrival input for any queue simulation.
+An exponential distribution with **λ = 0.9915** (mean inter-arrival time ≈ 1 minute) was fitted using MLE. A Chi-squared goodness of fit test returned a test statistic of **3.39**, well below the critical value of **15.51** (df = 8, α = 0.05), with a p-value of 0.9076. The exponential distribution is a good fit and should be used as the arrival input for any queue simulation.
 
 ---
 
@@ -99,16 +99,16 @@ Enjoyment is a bounded integer (1–10) with a clear shape that doesn't map clea
 ![Player Spending Histogram](images/hist_spending.png)
 *The majority of players spend nothing, creating a zero-inflated distribution. A single theoretical distribution cannot capture this shape.*
 
-The spending data is zero-inflated — most players spend $0, with a small proportion spending varying amounts. The recommended approach is a two-stage model: first simulate whether a player spends at all using a Bernoulli distribution, then apply an empirical distribution to model the amount spent by those who do spend. This mixed approach produces a far more realistic simulation than any single distribution.
+The spending data is zero-inflated: most players spend $0, whilst a small proportion spend varying amounts. The recommended approach is a two-stage model: first simulate whether a player spends at all using a Bernoulli distribution, then apply an empirical distribution to model the amount spent by those who do spend. This mixed approach produces a far more realistic simulation than any single distribution.
 
 ---
 
 ### Impatience Data & Truncation Bias
 
 ![Queue Times for Impatient Players](images/hist_queue_impatient.png)
-*Queue abandonment times for players who left early. This dataset only captures players who left — not those who waited and played.*
+*Queue abandonment times for players who left early. This dataset only captures players who left, not those who waited and played.*
 
-The impatience dataset is a **truncated sample** — it only includes players who gave up, not those who waited successfully. Fitting a distribution to this data alone would underestimate true queue times and overestimate abandonment rates, leading to simulations that exaggerate player churn. Any simulation using this data needs to account for the full player population, not just those who abandoned.
+The impatience dataset is a **truncated sample**. It only includes players who gave up, not those who waited successfully. Fitting a distribution to this data alone would underestimate true queue times and overestimate abandonment rates, leading to simulations that exaggerate player churn. Any simulation using this data needs to account for the full player population, not just those who abandoned.
 
 ---
 
@@ -116,12 +116,12 @@ The impatience dataset is a **truncated sample** — it only includes players wh
 
 **Limitations:**
 - The dataset is hypothetical, which limits real-world validation of findings
-- Spending analysis is correlational — we cannot conclude bots *cause* lower spending without controlling for confounders (e.g. game quality, player skill level)
+- Spending analysis is correlational. We cannot conclude bots *cause* lower spending without controlling for confounders (e.g. game quality, player skill level)
 - The impatience data is truncated and cannot be used in isolation for retention modelling
 
 **If I had more time / data:**
 - Build a regression model to quantify the relationship between bot count and revenue while controlling for other variables
-- Conduct formal goodness-of-fit testing for the spending and enjoyment distributions to validate the recommended simulation inputs
+- Conduct formal goodness of fit testing for the spending and enjoyment distributions to validate the recommended simulation inputs
 - Combine the multiplayer and single-player datasets to model the full player journey from arrival to spending outcome
 - Build an interactive Shiny dashboard to allow the product team to explore spending by bot count and simulate revenue under different matchmaking scenarios
   
